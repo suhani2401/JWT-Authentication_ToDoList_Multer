@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/todo.css">
+</head>
+<body>
+    <nav>
+        <h1><a href="/">To Do List</a></h1>
+       <div class="btn1">
+        <button class="btn2"><a href="/todolist">Add more Task</a></button>
+      </div> 
+    </nav>
+    <h1>List:</h1>
+    <ul id="task-list">
+        <!-- Tasks will be dynamically added here -->
+        <% if (tasks && tasks.length > 0) { %>
+            <% tasks.forEach(task => { %>
+            <div class="list">
+                <br>
+                <ul>
+                    <li id="complete"><%= task.task %></li>
+                </ul>
+              <div class="butthons">
+                <!-- <button class="bttn">update</button> -->
+                <form class="butthons">
+                <button class="bttn" onclick="myFunction()">Completed</button>
+                </form>
+                <form class="butthons" action="/<%= task._id %>/delete?_method=DELETE"  method="post">
+                    <button class="bttn">Delete</button>
+                </form>
+              </div>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <li>No tasks yet!</li>
+        <% } %>
+    </ul>
+    <footer>Copyright 2024 JSON Web Token</footer>
+</body>
+ <script>
+    function myFunction() {
+        var complete = document.getElementById("complete");
+        complete.style.textDecoration = "line-through";
+    }
+</script>
+</html>

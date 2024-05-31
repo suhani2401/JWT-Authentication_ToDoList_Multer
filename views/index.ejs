@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+   <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <h1><a href="/">JSON Web Token</a></h1>
+       <div class="btn1">
+        <button class="btn2"><a href="/signup">SignUp</a></button>
+        <button class="btn3"><a href="/login">Login</a></button>
+      </div> 
+    </nav>
+
+    <header>
+      <div class="smoothie">
+        <img src="/smoothie.png" alt="">
+      </div>
+      <div class="headings">
+        <h2>Smoothie Recipes</h2>
+        <h3>By Ninjas For Ninjas</h3>
+        <button class="btn4"><a href="/todolist">View ToDoList</a></button>
+      </div>
+    </header>
+
+<footer class="footer">Copyright 2024 JSON Web Token</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn3 = document.getElementsByClassName('btn3');
+            const loggedIn = localStorage.getItem('loggedIn');
+
+            if (loggedIn === 'true') {
+                btn3.innerHTML = 'Logout';
+                btn3.href = '#';
+                btn3.addEventListener('click', async () => {
+                    try {
+                        const res = await fetch('/logout', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' }
+                        });
+
+                        if (res.ok) {
+                            localStorage.setItem('loggedIn', 'false');
+                            window.location.reload();
+                        } else {
+                            console.log('Logout failed');
+                        }
+                    } catch (err) {
+                        console.error(err);
+                    }
+                });
+            } else {
+                btn3.innerHTML = 'Login';
+                btn3.href = '/login';
+            }
+        }); 
+</script>
+</body>
+</html>

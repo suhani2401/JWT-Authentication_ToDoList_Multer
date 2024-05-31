@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <h1><a href="/">JSON Web Token</a></h1>
+    </nav>
+    <div class="container">
+      <form
+        id="login-form"
+        action="/loginpost"
+        method="post"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="heading">
+          <h1>Login Form</h1>
+        </div>
+        <div class="details">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="useremail"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="btn1">
+          <button type="submit" class="btn2">Login</button>
+          <button type="button" class="btn3"><a href="/">Back</a></button>
+        </div>
+        <br />
+        <div class="password">
+          <a href="/forgot">forgot password?</a>
+          <a href="/reset">reset password</a>
+        </div>
+      </form>
+    </div>
+
+    <footer>Copyright 2024 JSON Web Token</footer>
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); 
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // Client-side validation
+          if (email === "" || password === "") {
+            alert("Email and Password are required.");
+            return;
+          }
+
+          const data = { useremail: email, password: password };
+
+          fetch(this.action, {
+            method: this.method,
+            body: JSON.stringify(data),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                response.json().then((data)=>{
+                  console.log(data);
+                })
+                alert("Login Successful");
+                window.location.href = "/todolist";
+              } else {
+                response.json().then((data) => {
+                  console.error("Error:", data);
+                });
+              }
+            })
+            .catch((error) => console.error("Fetch error:", error));
+        });
+    </script>
+  </body>
+</html>

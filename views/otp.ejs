@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <nav>
+        <h1><a href="/">JSON Web Token</a></h1>
+    </nav>
+    <div class="container">
+        <form action="/otp" method="post" class="needs-validation" novalidate>
+            <div class="heading">
+                <h1>Reset Password</h1>
+            </div>
+            <div class="details">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+                <label for="otp">OTP</label>
+                <input type="number" name="otp" id="otp" placeholder="Enter 6 digit OTP" required>
+
+                <label for="password">NewPassword</label>
+                <input type="password" name="password" id="password" placeholder="Enter your NewPassword" required>
+
+            <div class="btn1">
+                <button type="submit" class="btn2">Reset</button>
+                <button type="button" class="btn3"><a href="/login">Back</a></button>
+            </div>
+    
+        </form>
+    </div>
+
+    <footer>Copyright 2024 JSON Web Token</footer>
+</body>
+</html>

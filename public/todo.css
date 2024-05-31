@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body{
+    margin: 20px 40px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    background: #fafafa;
+  }
+  h1, h2, ul, li, a, p, input, label, button, div, footer{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    color: #444;
+  }
+  ul{
+    list-style-type: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 120px;
+  }
+  nav a{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+  }
+  .btn1{
+    display: flex;
+    gap: 20px;
+  }
+  form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header h2{
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  header .btn1{
+    margin-top: 20px;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 0.8em;
+  }
+  .btn2{ 
+    margin-top: 30px;
+    border-radius: 36px;
+    background: #FEE996;
+    border:0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 0px 10px;
+    letter-spacing: 2px;
+  }
+  input{
+    border-radius: 5px;
+    width: 500px;
+    height: 40px;
+    color: black;
+    font-size: 0.8em;
+  }
+  #task-list{
+    border-radius: 5px;
+    width: 500px;
+    height: 40px;
+    letter-spacing: 2px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+  .list{
+    align-items: center;
+    font-size: 1em;
+    display: flex;
+    background-color: rgb(180, 180, 180) ;
+    border-radius: 10px;
+    width: 500px;
+    margin: 5px;
+    justify-content: space-between;
+  }
+  .butthons{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .bttn{
+    margin-right: 10px;
+    margin-top: 15px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: black;
+    text-transform: uppercase;
+    font-size: 0.5em;
+    color: white;
+  }
+  /* #bttn{
+    padding: 10px 16px;
+    border-radius: 5px;
+    background: black;
+    text-transform: uppercase;
+    font-size: 0.5em;
+    color: white;
+  } */
+  .btn{
+    border-radius: 5px;
+    background: black;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+    color: white;
+  }
+footer{
+    text-align: center;
+    margin-top: 260px;
+    color: #aaa;
+}
+.footer{
+    text-align: center;
+    margin-top: 220px;
+    color: #aaa;
+}

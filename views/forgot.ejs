@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <nav>
+        <h1><a href="/">JSON Web Token</a></h1>
+    </nav>
+    <div class="container">
+        <form action="/forgotpassword" method="post" class="needs-validation" novalidate>
+            <div class="heading">
+                <h1>Forgot Password</h1>
+            </div>
+            <div class="details">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            <div class="btn1">
+                <button type="submit" class="btn2">Send OTP</button>
+                <button type="button" class="btn3"><a href="/login">Back</a></button>
+            </div>
+    
+        </form>
+    </div>
+
+    <footer class="footer">Copyright 2024 JSON Web Token</footer>
+</body>
+</html>
