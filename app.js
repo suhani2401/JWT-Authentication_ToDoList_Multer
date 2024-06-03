@@ -9,7 +9,12 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const Task = require('./models/task');
+const Uploads = require('./models/upload');
 const methodOverride = require('method-override');
+const multer = require('multer');
+const { storage } = require("./cloudinary");
+const upload = multer({ storage });
+const dotenv = require("dotenv").config();
 
 
 const app = express();
@@ -28,6 +33,17 @@ app.use(
     cookie: { secure: false }, // Set to true if using HTTPS
   })
 );
+
+//File Upload Storage
+// const storage = multer.diskStorage({
+//   destination: function(req, file, cb){
+//     return cb(null, './uploads');
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
+// const upload = multer({ storage });
 
 //flash message
 app.use(flash());
@@ -71,5 +87,12 @@ app.get("/todoList", (req, res) => {
   res.render("todolist", { loggedIn: req.session.loggedIn });
 });
 app.get("/reset", (req, res) => res.render("reset"));
+
+app.post("/upload", upload.single('profileImage'), (req, res) => {
+  console.log(req.file);
+  console.log('Image Uploaded Successfully!!');
+
+  return res.redirect("/");
+});
 
 app.use(authRoutes);

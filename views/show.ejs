@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Image</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>    
+    <nav>
+        <h1><a href="/">File Upload</a></h1>
+    </nav>
+    <button type="button" class="btn3"><a href="/">Back</a></button> <br>
+    <button type="button" class="btn3"><a href="/file">Upload New File</a></button>
+    <div class="image">
+        <% for(let image of images){ %>
+                <div>
+                    <img src="<%= images.link %>">
+                    <form action="/delete/<%= image._id %>?method=DELETE" method="post">
+                        <button type="submit" class="btn3">Delete</button> 
+                    </form>
+                </div>
+        <% } %>
+    </div>
+    <footer class="footer">Copyright 2024 JSON Web Token</footer>
+</body>
+</html>

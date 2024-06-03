@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <h1><a href="/">File Upload</a></h1>
+    </nav>
+    <form id="upload" action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Upload File: </label>
+        <input type="file" name="profileImage">
+        <div class="btn1">
+        <button type="submit" class="btn2">Upload</button>
+        <button type="button" class="btn2"><a href="/show">Show Image</a></button>
+        </div>
+    </form>
+    <footer class="footer">Copyright 2024 JSON Web Token</footer>
+</body>
+</html>

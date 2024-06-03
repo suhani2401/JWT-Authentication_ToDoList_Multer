@@ -28,6 +28,13 @@ router.get('/dashboard', authcontroller.task_get);
 // router.put('/tasks/:id', authcontroller.task_put);
 router.delete('/:id/delete', authcontroller.task_delete);
 
+//File Upload
+router.get('/file', authcontroller.file_get);
+router.post('/upload', authcontroller.file_post);
+router.get('/show', authcontroller.fileShow_get);
+router.delete('/delete/:id', authcontroller.file_delete);
+
+
 module.exports = router;
 
 

@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const Task = require('../models/task');
+const Uploads = require('../models/upload');
 
 const handleErrors = (err) => {
   console.log(err.message, err.code);
@@ -25,7 +26,6 @@ const handleErrors = (err) => {
       errors[properties.path] = properties.message;
     });
   }
-
   return errors;
 };
 
@@ -251,4 +251,37 @@ module.exports.task_get = async (req, res) => {
      }
  };
 
-
+ //File Upload
+ module.exports.file_get = (req, res) => {
+  res.render("file");
+};
+module.exports.file_post = async (req, res) => {
+  try {
+    const url = req.file.path;
+    const fileName = req.file.filename;
+    console.log(url);
+    console.log(fileName);
+    let final = new Uploads({link:url, filename:fileName});
+    console.log('File uploaded in Database');
+    await final.save()
+    return res.redirect("/show");
+  } 
+  catch (err) {
+    const errors = handleErrors(err);
+    return res.status(400).json({ errors });
+  }
+};
+module.exports.fileShow_get = async (req, res) => {
+    const images = await Uploads.find({});
+    res.render("show", { images });
+};
+module.exports.file_delete = async(req,res) => {
+  try {
+    let{ id } = req.params;
+    await Uploads.findByIdAndDelete(id);
+    return res.redirect("/show");
+  }
+  catch (err) {
+      res.status(400).send(err);
+  }
+};
